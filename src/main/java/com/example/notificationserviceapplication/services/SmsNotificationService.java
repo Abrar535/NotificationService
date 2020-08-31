@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 public class SmsNotificationService {
 
     @RabbitListener(queues = "${smsintegrationmessage}")
-    public void handleSms(SmsNotifications smsNotifications){
+    public void handleSmsNotification(SmsNotifications smsNotifications){
 
         log.info("SMS Received -> "+smsNotifications);
-
+        log.info("Sending sms to "+smsNotifications.getDestinationPhoneNumber()+", SmsText: "+smsNotifications.getSmsText());
     }
 
 
