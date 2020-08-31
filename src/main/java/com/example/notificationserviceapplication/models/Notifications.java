@@ -15,11 +15,20 @@ public class Notifications {
     private String sender;
     private String receiver;
     private String text;
-    private String userIdentityGuid;
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "sent_Time",nullable = false)
     private Date sentTime;
+
+    public Notifications(){
+
+    }
+    public Notifications(Integer type,String sender,String receiver,String text){
+        this.type = type;
+        this.sender = sender;
+        this.receiver = receiver;
+        this.text = text;
+    }
 
     public Integer getId() {
         return id;
@@ -69,11 +78,4 @@ public class Notifications {
         this.sentTime = sentTime;
     }
 
-    public String getUserIdentityGuid() {
-        return userIdentityGuid;
-    }
-
-    public void setUserIdentityGuid(String userIdentityGuid) {
-        this.userIdentityGuid = userIdentityGuid;
-    }
 }
