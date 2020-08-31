@@ -20,7 +20,7 @@ public class SmsNotificationService {
 
         log.info("Sending sms to "+smsNotifications.getDestinationPhoneNumber()+", SmsText: "+smsNotifications.getSmsText());
         Notifications notifications = new Notifications(smsNotificationsType,smsNotifications.getUserIdentityGuid(),smsNotifications.getDestinationPhoneNumber(),smsNotifications.getSmsText());
-        System.out.println(save(notifications));
+
     }
 
     public Notifications save(Notifications notifications){
