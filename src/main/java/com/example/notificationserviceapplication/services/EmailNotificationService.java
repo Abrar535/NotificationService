@@ -20,7 +20,7 @@ public class EmailNotificationService {
 
         log.info("Sending E-mail to "+emailNotifications.getToEmail()+", EmailText: "+emailNotifications.getEmailText());
         Notifications notifications = new Notifications(emailNotificationsType,emailNotifications.getUserIdentityGuid(),emailNotifications.getToEmail(),emailNotifications.getEmailText());
-
+        save(notifications);
     }
     public Notifications save(Notifications notifications){
         return notificationsRepository.save(notifications);
