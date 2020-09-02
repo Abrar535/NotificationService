@@ -23,7 +23,7 @@ public class TestController {
     }
     @GetMapping("/api/receive/notification")
     public List<Notifications> getNotifications(){
-
+        System.out.println("i am hit ");
         return notificationsRepository.findAll();
 
     }
