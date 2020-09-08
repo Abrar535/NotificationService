@@ -1,2 +1,2 @@
 * text=auto
-Dockerfile text eol=lf
+mvnw text eol=lf
