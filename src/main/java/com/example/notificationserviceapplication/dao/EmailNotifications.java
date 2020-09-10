@@ -3,6 +3,7 @@ package com.example.notificationserviceapplication.dao;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
+import java.util.Map;
 
 public class EmailNotifications implements Serializable {
 
@@ -10,15 +11,6 @@ public class EmailNotifications implements Serializable {
     private String emailText;
     private String userIdentityGuid;
 
-    public EmailNotifications(@JsonProperty("toEmail") String toEmail,
-                              @JsonProperty("emailText") String emailText,
-                              @JsonProperty("userIdentityGuid") String userIdentityGuid){
-
-        this.toEmail = toEmail;
-        this.emailText = emailText;
-        this.userIdentityGuid = userIdentityGuid;
-
-    }
 
 
     public String getToEmail() {
@@ -44,7 +36,12 @@ public class EmailNotifications implements Serializable {
     public void setUserIdentityGuid(String userIdentityGuid) {
         this.userIdentityGuid = userIdentityGuid;
     }
-
+    @JsonProperty("message")
+    public void customSetter(Map<String,String> message){
+        this.toEmail = message.get("toEmail");
+        this.emailText = message.get("emailText");
+        this.userIdentityGuid = message.get("userIdentityGuid");
+    }
     @Override
     public String toString() {
         return "EmailNotifications{" +

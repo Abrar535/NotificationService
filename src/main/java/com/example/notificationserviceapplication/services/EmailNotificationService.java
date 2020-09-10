@@ -18,7 +18,7 @@ public class EmailNotificationService {
     @RabbitListener(queues = "${emailintegrationmessage}")
     public void handleEmailNotification( EmailNotifications emailNotifications){
 
-        log.info("Sending E-mail to "+emailNotifications.getToEmail()+", EmailText: "+emailNotifications.getEmailText());
+        log.info("Sending EE-mail to "+emailNotifications.getToEmail()+", EmailText: "+emailNotifications.getEmailText());
         Notifications notifications = new Notifications(emailNotificationsType,emailNotifications.getUserIdentityGuid(),emailNotifications.getToEmail(),emailNotifications.getEmailText());
         save(notifications);
     }

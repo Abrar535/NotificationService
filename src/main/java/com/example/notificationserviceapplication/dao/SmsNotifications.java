@@ -3,6 +3,7 @@ package com.example.notificationserviceapplication.dao;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
+import java.util.Map;
 
 public class SmsNotifications implements Serializable {
 
@@ -10,15 +11,6 @@ public class SmsNotifications implements Serializable {
     private String smsText;
     private String userIdentityGuid;
 
-    public SmsNotifications(@JsonProperty("destinationPhoneNumber") String destinationPhoneNumber,
-                            @JsonProperty("smsText") String smsText,
-                            @JsonProperty("userIdentityGuid") String userIdentityGuid){
-
-        this.destinationPhoneNumber = destinationPhoneNumber;
-        this.smsText = smsText;
-        this.userIdentityGuid = userIdentityGuid;
-
-    }
 
     public String getDestinationPhoneNumber() {
         return destinationPhoneNumber;
@@ -42,6 +34,13 @@ public class SmsNotifications implements Serializable {
 
     public void setUserIdentityGuid(String userIdentityGuid) {
         this.userIdentityGuid = userIdentityGuid;
+    }
+
+    @JsonProperty("message")
+    public void customSetter(Map<String,String> message){
+        this.destinationPhoneNumber = message.get("destinationPhoneNumber");
+        this.smsText = message.get("smsText");
+        this.userIdentityGuid = message.get("userIdentityGuid");
     }
 }
 
